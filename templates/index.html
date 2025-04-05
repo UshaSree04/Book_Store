@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Bookstore</title>
+</head>
+<body>
+  <h1>📚 Welcome to the Bookstore</h1>
+
+  <form method="get" action="/">
+    <input type="text" name="q" placeholder="Search books..." value="{{ query }}">
+    <button type="submit">Search</button>
+  </form>
+
+  <h2>Books</h2>
+  {% for book in books %}
+    <div>
+      <strong>{{ book.title }}</strong> by {{ book.author }} [{{ book.category }}]
+      <a href="{{ url_for('add_to_cart', index=loop.index0) }}">🛒 Add to Cart</a>
+    </div>
+  {% else %}
+    <p>No books found.</p>
+  {% endfor %}
+
+  <p><a href="{{ url_for('view_cart') }}">🛒 View Cart</a></p>
+  <p><a href="{{ url_for('admin') }}">⚙️ Admin Panel</a></p>
+</body>
+</html>

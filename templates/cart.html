@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Your Cart</title>
+</head>
+<body>
+  <h1>🛒 Shopping Cart</h1>
+  {% for book in cart %}
+    <div>{{ book.title }} by {{ book.author }}</div>
+  {% else %}
+    <p>Your cart is empty.</p>
+  {% endfor %}
+  <p><a href="/">⬅️ Back to Store</a></p>
+</body>
+</html>
